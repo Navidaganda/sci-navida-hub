@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sci-Navida Hub | Joelyn Pagaduan</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
-        <style>
+            <style>
         body { font-family: 'Montserrat', sans-serif; margin: 0; text-align: center; color: #2c3e50; background-color: #fcfcfc; transition: 0.3s; }
         
         /* TOP BAR */
@@ -27,7 +27,7 @@
         .btn-open { color: #fff; padding: 8px 15px; border-radius: 5px; font-weight: bold; font-size: 11px; display: inline-block; margin-top: 10px; background: #2ecc71; }
         .footer { padding: 40px; font-size: 0.8em; color: #bdc3c7; }
 
-        /* --- DARK MODE SETTINGS --- */
+        /* DARK MODE BUTTON SETTINGS */
         #darkModeToggle {
             position: fixed; top: 80px; left: 20px; z-index: 1000;
             padding: 10px; border-radius: 50%; border: none;
@@ -35,17 +35,21 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.2); font-size: 1.2em;
         }
 
+        /* --- DARK MODE THEME COLORS --- */
         body.dark-mode { background-color: #121212; color: #e0e0e0; }
         .dark-mode .hero { border-bottom-color: #27ae60 !important; }
-        /* Para sa text sa baba na hindi kita kanina */
-        .dark-mode .footer { color: #ffffff !important; }
+        .dark-mode .footer, .dark-mode .search-container p { color: #ffffff !important; }
         .dark-mode .search-container { background: #1a2a1f !important; }
-        .dark-mode .search-container p { color: #ffffff !important; }
-        /* Para sa white overlay sa hero section */
-        .dark-mode div[style*="background: rgba(255, 255, 255, 0.8)"] { background: rgba(18, 18, 18, 0.9) !important; }
         .dark-mode .journal-card { background: #1e1e1e !important; color: #ffffff !important; }
-        .dark-mode .journal-card strong { color: #2ecc71 !important; }
-        </style>
+        
+        /* PARA SA DATES AT DESCRIPTION NA HINDI KITA SA DILIM */
+        .dark-mode .journal-card small { color: #bdc3c7 !important; } 
+        .dark-mode .journal-card p { color: #e0e0e0 !important; } 
+        .dark-mode .journal-card strong { color: #2ecc71 !important; } 
+        
+        .dark-mode div[style*="background: rgba(255, 255, 255, 0.8)"] { background: rgba(18, 18, 18, 0.9) !important; }
+    </style>
+
 </head>
 <body>
     <button id="darkModeToggle" onclick="toggleDarkMode()">🌙</button>
@@ -83,7 +87,7 @@
         <div class="journal-card" style="border-left: 6px solid #2ecc71; cursor: default; background: #f9f9f9; padding: 20px; margin-bottom: 20px; border-radius: 0 12px 12px 0; text-align: left;">
             <strong style="display: block; font-size: 1.1em;">Entry #01: System Initialization</strong>
             <small style="color: #7f8c8d; display: block; margin-bottom: 10px;">April 01, 2026 | System Log</small>
-            <p style="font-size: 0.95em; color: #34495e; margin: 0; line-height: 1.6;">
+            <p style="font-size: 0.95em; margin: 0; line-height: 1.6;">
                 "Initialization of the Sci-Navida digital ecosystem. This log marks the beginning of a reflective journey through 21st-century pedagogy and scientific documentation."
             </p>
         </div>
@@ -173,8 +177,8 @@
 
     <div class="footer">© 2026 | Joelyn Navida Pagaduan | Mindoro State University</div>
 
-    <script>
-                function searchFunction() {
+        <script>
+        function searchFunction() {
             let input = document.getElementById('journalSearch').value.toLowerCase();
             let links = document.getElementsByClassName('entry-link');
             for (let i = 0; i < links.length; i++) {
@@ -189,6 +193,6 @@
             body.classList.toggle('dark-mode');
             btn.innerHTML = body.classList.contains('dark-mode') ? '☀️' : '🌙';
         }
-    </script>
+        </script>
 </body>
 </html>
