@@ -26,10 +26,25 @@
         
         a { text-decoration: none; color: inherit; display: block; }
         .btn-open { color: #fff; padding: 8px 15px; border-radius: 5px; font-weight: bold; font-size: 11px; display: inline-block; margin-top: 15px; background: #2ecc71; }
+        /* Dark Mode Colors */
+body.dark-mode { background-color: #121212; color: #e0e0e0; }
+.dark-mode .hero div[style*="background: rgba(255, 255, 255, 0.8)"] { background: rgba(18, 18, 18, 0.9) !important; }
+.dark-mode .journal-card { background: #1e1e1e !important; color: #ffffff !important; }
+.dark-mode .journal-card strong { color: #2ecc71 !important; }
+.dark-mode .search-container { background: #1a2a1f !important; }
+
+#darkModeToggle {
+    position: fixed; top: 20px; left: 20px; z-index: 1000;
+    padding: 10px; border-radius: 50%; border: none;
+    background: #2ecc71; color: white; cursor: pointer;
+}
+
         .footer { padding: 40px; font-size: 0.8em; color: #bdc3c7; }
     </style>
 </head>
 <body>
+    <button id="darkModeToggle" onclick="toggleDarkMode()">🌙</button>
+
 
     <div class="top-bar">
         <audio controls loop>
@@ -162,6 +177,13 @@
                 links[i].style.display = text.includes(input) ? "block" : "none";
             }
         }
+        function toggleDarkMode() {
+    const body = document.body;
+    const btn = document.getElementById('darkModeToggle');
+    body.classList.toggle('dark-mode');
+    btn.innerHTML = body.classList.contains('dark-mode') ? '☀️' : '🌙';
+}
+
     </script>
 </body>
 </html>
