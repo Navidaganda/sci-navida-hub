@@ -150,9 +150,9 @@
         <i class="fas fa-graduation-cap"></i> 
         <span>Khan Science</span>
     </a>
-    <div class="resource-card" style="cursor: pointer;" onclick="alert('TRIVIA: A bolt of lightning is 5x hotter than the sun! ⚡')">
-        <i class="fas fa-lightbulb"></i> 
-        <span>Trivia</span>
+    <div class="resource-card" style="cursor: pointer;" id="trivia-btn">
+    <i class="fas fa-lightbulb"></i> 
+    <span>Science Trivia</span>
     </div>
     <a href="https://www.youtube.com/@AsapSCIENCE" target="_blank" class="resource-card">
         <i class="fab fa-youtube"></i> 
@@ -290,6 +290,24 @@
             body.classList.toggle('dark-mode');
             btn.innerHTML = body.classList.contains('dark-mode') ? '☀️' : '🌙';
         }
+            // --- RANDOM SCIENCE TRIVIA LOGIC ---
+const scienceTrivias = [
+    "A bolt of lightning is 5x hotter than the surface of the sun! ⚡",
+    "Octopuses have three hearts, nine brains, and blue blood! 🐙",
+    "The DNA in a single human body could stretch from Earth to Pluto and back! 🧬",
+    "Venus is the only planet that rotates clockwise in our solar system. 🪐",
+    "Bananas are radioactive because they contain high levels of potassium-40! 🍌",
+    "An average cumulus cloud weighs about 1.1 million pounds! ☁️",
+    "Sound travels about 4 times faster in water than it does in air. 🔊",
+    "The Eiffel Tower can grow up to 15 cm taller in the summer due to heat expansion! 🗼",
+    "A teaspoon of a neutron star would weigh about 6 billion tons! 🌌",
+    "It takes 8 minutes and 20 seconds for light from the Sun to reach Earth. ☀️"
+];
+
+document.getElementById('trivia-btn').addEventListener('click', function() {
+    const randomIndex = Math.floor(Math.random() * scienceTrivias.length);
+    alert("DID YOU KNOW? \n\n" + scienceTrivias[randomIndex]);
+});
         </script>
     <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
     <i class="fas fa-arrow-up"></i>
