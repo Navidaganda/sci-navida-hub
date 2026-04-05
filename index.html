@@ -90,6 +90,26 @@
 .resource-card[onclick*="showAboutMe"]:hover i {
     text-shadow: 0 0 15px rgba(52, 152, 219, 0.9);
 }
+                /* SCIENCE WORD BOX DESIGN */
+.word-box {
+    background: #ffffff;
+    border: 2px solid #2ecc71;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 25px auto;
+    max-width: 90%;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.15);
+    text-align: left;
+    border-left: 10px solid #2ecc71;
+}
+.word-title {
+    color: #2ecc71;
+    font-weight: bold;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
         .dark-mode .journal-card small { color: #bdc3c7 !important; } 
         .dark-mode .journal-card p { color: #e0e0e0 !important; } 
         .dark-mode .journal-card strong { color: #2ecc71 !important; } 
@@ -188,6 +208,11 @@
             <span style="color: #2980b9; font-weight: bold;">Meet Joelyn</span>
         </div>
                     </div>
+    <div class="word-box" id="scienceWordBox">
+    <div class="word-title"><i class="fas fa-atom"></i> Science Word of the Day</div>
+    <h3 id="wordDisplay" style="margin: 5px 0; color: #2c3e50;">Loading...</h3>
+    <p id="defDisplay" style="margin: 0; font-size: 0.85em; color: #7f8c8d; line-height: 1.4;"></p>
+    </div>
 </div>
     <div class="search-container">
         <p style="margin-bottom: 10px; color: #2c3e50; font-weight: bold;">Maghanap sa Journal:</p>
@@ -376,6 +401,28 @@ document.getElementById('trivia-btn').addEventListener('click', function() {
           "💻 Coding and designing digital spaces like this Hub.\n\n" +
           "\"I believe that teaching is an art, and Science is the most beautiful canvas.\" 🔬🎨";
     alert(aboutText);
+                // --- DYNAMIC SCIENCE WORD LOGIC ---
+const scienceWords = [
+    { word: "Bioluminescence", def: "The production and emission of light by a living organism, such as fireflies." },
+    { word: "Mitochondria", def: "The powerhouse of the cell! It generates chemical energy for cell reactions." },
+    { word: "Photosynthesis", def: "The process where green plants use sunlight to make food." },
+    { word: "Kinetic Energy", def: "The energy an object possesses due to its motion." },
+    { word: "Catalyst", def: "A substance that speeds up a chemical reaction without being consumed." },
+    { word: "Osmosis", def: "Movement of water through a membrane from low to high concentration." }
+];
+
+function showRandomWord() {
+    const displayWord = scienceWords[Math.floor(Math.random() * scienceWords.length)];
+    const wordElem = document.getElementById('wordDisplay');
+    const defElem = document.getElementById('defDisplay');
+    if(wordElem && defElem) {
+        wordElem.innerText = displayWord.word;
+        defElem.innerText = displayWord.def;
+    }
+}
+
+// Para lumabas agad pag-load ng page
+window.addEventListener('load', showRandomWord);
             }
         </script>
     <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
