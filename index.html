@@ -158,6 +158,10 @@
         <i class="fab fa-youtube"></i> 
         <span>Sci Channels</span>
     </a>
+        <div class="resource-card" style="cursor: pointer; background: #fff8e1; border: 1px solid #ffe082;" onclick="startDailyQuiz()">
+        <i class="fas fa-brain" style="color: #ffa000;"></i> 
+        <span style="color: #f57c00; font-weight: bold;">Daily Quiz</span>
+        </div>
 </div>
         </div>
     </div>
@@ -308,6 +312,31 @@ document.getElementById('trivia-btn').addEventListener('click', function() {
     const randomIndex = Math.floor(Math.random() * scienceTrivias.length);
     alert("DID YOU KNOW? \n\n" + scienceTrivias[randomIndex]);
 });
+            function startDailyQuiz() {
+    const quizPool = [
+        { q: "What is the powerhouse of the cell? 🔋", a: "mitochondria" },
+        { q: "What is the only metal that is liquid at room temperature? 🌡️", a: "mercury" },
+        { q: "What is the chemical symbol for Gold? 🏆", a: "au" },
+        { q: "How many hearts does an octopus have? 🐙", a: "3" },
+        { q: "Which planet is known as the Red Planet? 🔴", a: "mars" },
+        { q: "Which planet rotates clockwise? 🪐", a: "venus" },
+        { q: "What is the boiling point of water in Celsius? 🌡️", a: "100" },
+        { q: "What is the largest organ of the human body? 🖐️", a: "skin" },
+        { q: "What is the hardest natural substance? 💎", a: "diamond" },
+        { q: "What is the neutral pH level? 🧪", a: "7" }
+    ];
+
+    const randomIdx = Math.floor(Math.random() * quizPool.length);
+    const selected = quizPool[randomIdx];
+
+    let userAnswer = prompt(selected.q);
+
+    if (userAnswer && userAnswer.trim().toLowerCase() === selected.a.toLowerCase()) {
+        alert("CORRECT! 🎉 Ang galing mo, Future Scientist!");
+    } else if (userAnswer) {
+        alert("Opps! Mali ang sagot. ❌ Ang tamang sagot ay: " + selected.a.toUpperCase());
+    }
+            }
         </script>
     <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
     <i class="fas fa-arrow-up"></i>
