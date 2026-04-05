@@ -158,9 +158,9 @@
         <i class="fab fa-youtube"></i> 
         <span>Sci Channels</span>
     </a>
-        <div class="resource-card" style="cursor: pointer; background: #fff8e1; border: 1px solid #ffe082;" onclick="startDailyQuiz()">
-        <i class="fas fa-brain" style="color: #ffa000;"></i> 
-        <span style="color: #f57c00; font-weight: bold;">Daily Quiz</span>
+        <div class="resource-card" style="cursor: pointer; background: #fffdf0; border: 1px solid #ffe082;" onclick="startDailyQuiz()">
+    <i class="fas fa-lightbulb" style="color: #f1c40f;"></i> 
+    <span style="color: #d4a017; font-weight: bold;">Daily Quiz</span>
         </div>
 </div>
         </div>
@@ -313,6 +313,7 @@ document.getElementById('trivia-btn').addEventListener('click', function() {
     alert("DID YOU KNOW? \n\n" + scienceTrivias[randomIndex]);
 });
             function startDailyQuiz() {
+    // 1. Ang Pool ng mga Questions (10 Items)
     const quizPool = [
         { q: "What is the powerhouse of the cell? 🔋", a: "mitochondria" },
         { q: "What is the only metal that is liquid at room temperature? 🌡️", a: "mercury" },
@@ -326,15 +327,22 @@ document.getElementById('trivia-btn').addEventListener('click', function() {
         { q: "What is the neutral pH level? 🧪", a: "7" }
     ];
 
+    // 2. Random Selection Logic
     const randomIdx = Math.floor(Math.random() * quizPool.length);
     const selected = quizPool[randomIdx];
 
+    // 3. User Interaction
     let userAnswer = prompt(selected.q);
 
-    if (userAnswer && userAnswer.trim().toLowerCase() === selected.a.toLowerCase()) {
-        alert("CORRECT! 🎉 Ang galing mo, Future Scientist!");
-    } else if (userAnswer) {
-        alert("Opps! Mali ang sagot. ❌ Ang tamang sagot ay: " + selected.a.toUpperCase());
+    // 4. Checking & Feedback (Ma'am Joelyn Style)
+    if (userAnswer) {
+        let cleanAnswer = userAnswer.trim().toLowerCase();
+        
+        if (cleanAnswer === selected.a.toLowerCase()) {
+            alert("CORRECT! 🎉\n\nExcellent work, Future Scientist! Keep that brain sharp! ✨");
+        } else {
+            alert("NICE TRY! 😊\n\nThe correct answer is: " + selected.a.toUpperCase() + ".\n\nDon't give up, let's keep learning! 📚");
+        }
     }
             }
         </script>
