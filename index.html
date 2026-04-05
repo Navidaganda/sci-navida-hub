@@ -158,10 +158,19 @@
         <i class="fab fa-youtube"></i> 
         <span>Sci Channels</span>
     </a>
-        <div class="resource-card" style="cursor: pointer; background: #fffdf0; border: 1px solid #ffe082;" onclick="startDailyQuiz()">
-    <i class="fas fa-lightbulb" style="color: #f1c40f;"></i> 
-    <span style="color: #d4a017; font-weight: bold;">Daily Quiz</span>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;">
+        
+        <div class="resource-card" style="cursor: pointer; background: #fffdf0; border: 1px solid #ffe082; margin: 0;" onclick="startDailyQuiz()">
+            <i class="fas fa-lightbulb" style="color: #f1c40f;"></i> 
+            <span style="color: #d4a017; font-weight: bold;">Daily Quiz</span>
         </div>
+
+        <div class="resource-card" style="cursor: pointer; background: #f0f7ff; border: 1px solid #b3d7ff; margin: 0;" onclick="showAboutMe()">
+            <i class="fas fa-user-graduate" style="color: #3498db;"></i> 
+            <span style="color: #2980b9; font-weight: bold;">Meet Joelyn</span>
+        </div>
+        
+            </div>
 </div>
         </div>
     </div>
@@ -344,6 +353,15 @@ document.getElementById('trivia-btn').addEventListener('click', function() {
             alert("NICE TRY! 😊\n\nThe correct answer is: " + selected.a.toUpperCase() + ".\n\nDon't give up, let's keep learning! 📚");
         }
     }
+            }
+            function showAboutMe() {
+    const aboutText = "Hi, I'm Ma'am Joelyn! ✨\n\n" +
+          "I'm a 3rd-year General Science major at Mindoro State University. Aside from dissecting lessons and exploring the wonders of the natural world, you'll probably find me:\n\n" +
+          "☕ Enjoying a good cup of coffee.\n" +
+          "👗 Exploring the latest trends (shoutout to my SHEIN finds!).\n" +
+          "💻 Coding and designing digital spaces like this Hub.\n\n" +
+          "\"I believe that teaching is an art, and Science is the most beautiful canvas.\" 🔬🎨";
+    alert(aboutText);
             }
         </script>
     <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
