@@ -143,7 +143,50 @@
     color: white;
     transform: translateY(-3px);
 }
+/* SIDEBAR DESIGN (RIGHT SIDE) */
+.sidebar {
+    height: 100%;
+    width: 0; /* Nakatago ito sa simula */
+    position: fixed;
+    z-index: 1500;
+    top: 0;
+    right: 0; /* Lalabas mula sa kanan */
+    background-color: #ffffff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    box-shadow: -4px 0 15px rgba(0,0,0,0.1);
+}
 
+.menu-header {
+    padding: 15px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #27ae60;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+}
+
+.sidebar a {
+    padding: 12px 25px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #555;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 5px;
+    left: 15px; /* "X" button sa loob ng menu */
+    font-size: 36px;
+    color: #bbb;
+}
+
+/* Dark Mode support for Sidebar */
+.dark-mode .sidebar { background-color: #1e1e1e; }
+.dark-mode .sidebar a { color: #e0e0e0; }
     </style>
 
 </head>
@@ -176,7 +219,7 @@
 </p>
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <div class="menu-header"><i class="fas fa-certificate"></i> Professional Credentials</div>
+  <div class="menu-header"><i class="fas fa-certificate"></i> Verified Expertise</div>
   <a href="#"><i class="fab fa-google"></i> Google Educator Lvl 1 (Soon)</a>
   <a href="#"><i class="fab fa-google"></i> Google Educator Lvl 2 (Soon)</a>
   <a href="#"><i class="fas fa-robot"></i> Gemini AI Certified (Soon)</a>
@@ -184,8 +227,8 @@
   <a href="#" onclick="closeNav()"><i class="fas fa-home"></i> Back to Hub</a>
 </div>
 
-<div style="position: fixed; top: 15px; left: 15px; z-index: 999;">
-  <button onclick="openNav()" style="background: white; border: none; font-size: 22px; color: #2ecc71; cursor: pointer; border-radius: 50%; width: 45px; height: 45px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center;">
+<div style="position: fixed; top: 15px; right: 15px; z-index: 1200;">
+  <button onclick="openNav()" style="background: white; border: none; font-size: 22px; color: #2ecc71; cursor: pointer; border-radius: 50%; width: 45px; height: 45px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
     <i class="fas fa-bars"></i>
   </button>
 </div>
@@ -442,7 +485,14 @@ function showRandomWord() {
         defElem.innerText = displayWord.def;
     }
 }
+/* SIDEBAR FUNCTIONS */
+function openNav() {
+    document.getElementById("mySidebar").style.width = "280px";
+}
 
+function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+            }
 // Para lumabas agad pag-load ng page
 window.addEventListener('load', showRandomWord);
      
