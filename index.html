@@ -24,12 +24,24 @@
         .search-container { padding: 30px 20px; background: #f0fff4; }
         #journalSearch { width: 80%; max-width: 500px; padding: 12px 20px; border-radius: 25px; border: 2px solid #2ecc71; outline: none; }
         .journal-section { padding: 40px 20px; max-width: 800px; margin: auto; text-align: left; }
-        .journal-card { padding: 20px; margin-bottom: 20px; border-radius: 0 12px 12px 0; transition: 0.3s; background: #f9f9f9; border-left: 6px solid #2ecc71; }
-        
-        a { text-decoration: none; color: inherit; display: block; }
-        .btn-open { color: #fff; padding: 8px 15px; border-radius: 5px; font-weight: bold; font-size: 11px; display: inline-block; margin-top: 10px; background: #2ecc71; }
-        .footer { padding: 40px; font-size: 0.8em; color: #bdc3c7; }
+        .journal-card { 
+    padding: 20px; 
+    margin-bottom: 20px; 
+    border-radius: 0 12px 12px 0; 
+    transition: 0.3s; 
+    background: #f9f9f9; 
+    border-left: 6px solid #2ecc71;
+    animation: fadeIn 0.8s ease-in-out; 
+}
 
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+a { text-decoration: none; color: inherit; display: block; }
+.btn-open { color: #fff; padding: 8px 15px; border-radius: 5px; font-weight: bold; font-size: 11px; display: inline-block; margin-top: 10px; background: #2ecc71; }
+.footer { padding: 40px; font-size: 0.8em; color: #bdc3c7; }
         /* DARK MODE BUTTON SETTINGS */
         #darkModeToggle {
     position: fixed; 
