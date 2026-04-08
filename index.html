@@ -188,6 +188,36 @@
 .dark-mode .sidebar { background-color: #1e1e1e; }
 .dark-mode .sidebar a { color: #e0e0e0; }
     </style>
+            /* --- PERIODIC TABLE STYLES --- */
+        .periodic-container {
+            padding: 20px;
+            background: #fff;
+            border-radius: 20px;
+            margin: 20px auto;
+            max-width: 90%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .element-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-top: 15px;
+        }
+        .element-btn {
+            padding: 10px 5px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+            color: white;
+        }
+        .element-btn:hover { transform: scale(1.1); }
+        .alkali { background: #e74c3c; }
+        .noble { background: #9b59b6; }
+        .non-metal { background: #2ecc71; }
+        .halogen { background: #f1c40f; }
 
 </head>
 <body>
@@ -297,6 +327,19 @@
     </div>
     </a>
 </div>
+            <section class="periodic-container">
+    <h3 style="color: #2ecc71; margin-bottom: 5px;"><i class="fas fa-atom"></i> Quick Periodic Table</h3>
+    <p style="font-size: 0.75em; color: #7f8c8d; margin-bottom: 15px;">Tap an element to see its properties!</p>
+    
+    <div class="element-grid">
+        <button class="element-btn non-metal" onclick="showElement('H', 'Hydrogen', '1.008', 'The most abundant element in the universe.')">H</button>
+        <button class="element-btn noble" onclick="showElement('He', 'Helium', '4.002', 'Used in balloons and makes your voice high-pitched!')">He</button>
+        <button class="element-btn alkali" onclick="showElement('Li', 'Lithium', '6.941', 'Used in rechargeable batteries for phones.')">Li</button>
+        <button class="element-btn non-metal" onclick="showElement('O', 'Oxygen', '15.999', 'Essential for respiration. We breathe this!')">O</button>
+        <button class="element-btn halogen" style="background: #d4af37;" onclick="showElement('Au', 'Gold', '196.97', 'A precious metal that does not rust.')">Au</button>
+        <button class="element-btn noble" onclick="showElement('Ne', 'Neon', '20.180', 'Used in bright, colorful advertising signs.')">Ne</button>
+    </div>
+            </section>
     <div id="journal-list" class="search-container">
         <p style="margin-bottom: 10px; color: #2c3e50; font-weight: bold;">Maghanap sa Journal:</p>
         <input type="text" id="journalSearch" onkeyup="searchFunction()" placeholder="Type to search entries...">
@@ -437,7 +480,15 @@
     </p>
     <small style="color: #27ae60; font-weight: bold;">— Carl Sagan</small>
 </div>
-
+<script>
+function showElement(symbol, name, mass, fact) {
+    alert("🧪 ELEMENT INFO\n\n" + 
+          "Symbol: " + symbol + "\n" +
+          "Name: " + name + "\n" +
+          "Atomic Mass: " + mass + "\n\n" +
+          "💡 Fun Fact: " + fact);
+}
+</script>
 
     <div class="footer" style="background: #f9f9f9; padding: 40px 20px; border-top: 1px solid #eee; margin-top: 50px; text-align: center;">
     <p style="font-weight: bold; color: #2c3e50; margin-bottom: 5px;">© 2026 | Sci-Navida Hub</p>
